@@ -2,9 +2,15 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+header, nav {
     font-family: 'Poppins', sans-serif;
 }
 
+main {
+    font-family: 'Noto Sans', sans-serif;
+}
 
 /*-------------- Header --------------*/
 .header {
@@ -12,8 +18,8 @@
     grid-template-columns: 1fr 2fr;
     align-items: center;
     justify-content: space-between;
-    background: #CBC3E3;
     padding: 13px;
+    background: #CBC3E3;
 }
 
 .h1-container {
@@ -29,7 +35,7 @@ h1, h2 {
     color: white;
 }
 
-span {
+.h1-span {
     font-weight: 300;
 }
 
@@ -41,12 +47,21 @@ span {
 }
 
 .bell {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     border-right: 1px solid lightgrey;
     padding-right: 10px;
 
     fill: white;
+}
+
+.bell::after {
+    /* content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 7.5px;
+    background-color: black;
+    display: inline-block; */
 }
 
 .profile-pic {
@@ -55,22 +70,96 @@ span {
 }
 
 h2 {
-   font-size: 12px;
-   font-weight: 400;
+   font-size: 14px;
+   font-weight: 300;
    white-space: nowrap;
 }
 
 /*-------------- navigation --------------*/
 nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 30px;
     background-color: #493F5E;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: 0;
-    place-items: center;
-    padding: 10px 30px;
 }
 
 .nav-img {
     width: 32px;
     fill: white;
 }
+
+a {
+    margin-top: 10px;
+}
+
+/*-------------- main --------------*/
+
+/*-------------- charts --------------*/
+.h3-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.tab-side {
+    background: ghostwhite;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+h3 {
+    padding: 10px;
+    font-size: 18px;
+}
+h4 {
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+h3, h4 {
+    font-weight: 600;
+}
+.line-btn {
+    padding: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 20px;
+    background-color: transparent;
+}
+.line-btn:focus {
+    background-color: lightgreen;
+    color: white;
+    border-radius: 15px;
+    transition: color .5s, background-color 1.2s;
+}
+.line-btn:hover {
+    cursor: pointer;
+}
+.line-chart-container {
+    padding: 0 0px 15px 15px;
+    /* background: lightblue; */
+}
+
+.bar-chart-container {
+    padding: 15px 10px 15px 10px;
+}
+
+.doughnut-chart-container {
+    padding: 15px 0 25px 10px;
+}
+.doughnut-chart-wrapper {
+    margin-left: 15px;
+}
+
+.line-chart-container,
+.bar-chart-container,
+.doughnut-chart-container {
+    border-bottom: 1px solid black;
+}
+
+.line-chart-wrapper,
+.bar-chart-wrapper,
+.doughnut-chart-wrapper {
+    padding-top: 20px;
+}
+
+/*-------------- social stats --------------*/
