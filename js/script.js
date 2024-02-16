@@ -13,8 +13,8 @@ data: {
         750, 1250, 1000, 2000, 1500, 1750, 1250, 1900, 2250, 1500, 2500
     ],
     borderWidth: 1, //width of line
-    borderColor: 'rgb(155, 0, 0)', // color of line
-    backgroundColor: 'rgba(255, 0, 0, 0.5)', //bg color
+    borderColor: 'rgb(195, 181, 255)', // color of line
+    backgroundColor: 'rgba(205 , 198, 255, .6)', //bg color
     pointRadius: 3, //radius of points on line
     fill: true, // set background color
     tension: .4, // makes line wavy
@@ -73,7 +73,7 @@ data: {
     ],
     borderWidth: 1, //width of line
 
-    backgroundColor: 'rgba(155, 0, 0, .5)'
+    backgroundColor: 'rgba(0, 0, 155, .5)'
     }]
 },
 options: {
@@ -123,7 +123,7 @@ data: {
     ],
     borderWidth: 1, //width of line
 
-    backgroundColor: ['rgba(155, 0, 0, .5)', 'rgba(0, 155, 0, .5)', 'rgba(0, 0, 155, .5)']
+    backgroundColor: ['rgba(0, 0, 155, .5)', 'rgba(0, 155, 0, .5)', 'rgba(8, 143, 143, .5)']
     }]
 },
 options: {

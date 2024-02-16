@@ -98,15 +98,17 @@ a {
 /*-------------- charts --------------*/
 .h3-container {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1.6fr;
 }
 .tab-side {
+    padding: 25px;
     background: ghostwhite;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
 }
 h3 {
-    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
     font-size: 18px;
 }
 h4 {
@@ -163,3 +165,181 @@ h3, h4 {
 }
 
 /*-------------- social stats --------------*/
+.social-container {
+    margin-top: 20px;
+    border-bottom: 1px solid black;
+}
+.stats-container {
+    margin: 20px;
+    background: lightgray;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.stats-wrapper {
+    display: flex;
+    padding: 10px 10px 10px 20px;
+}
+.social-img-container {
+    border-radius: 50%;
+    background-color: rgba(0, 0, 155, .5);
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-self: center;
+    
+}
+.social-img {
+    width: 40px;
+    margin: auto;
+    fill: white;
+}
+.stats {
+    /* padding-top: 5px; */
+    padding-left: 15px;
+}
+.social-network {
+    position: relative;
+    top: 10px;
+    color: rgba(0, 0, 155, .7);
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+.social-stats {
+    font-size: 40px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*-------------- Members / Recent Activity --------------*/
+.members-container, .activity-container {
+    border-bottom: 1px solid black;
+}
+.member-wrapper {
+    text-align: center;
+    margin: 0 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid black;
+}
+.member-wrapper:last-child {
+    border-bottom: none;
+}
+.members-heading {
+    padding: 15px 0 0 10px;
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.member-img {
+    width: 80px;
+    border-radius: 50%;
+}
+.email {
+    color: rgb(147,112,219);
+}
+.activity-span {
+    font-weight: 600;
+}
+/*-------------- Message User --------------*/
+.msg-container {
+    text-align: center;
+    padding: 0 10px;
+    border-bottom: 1px solid black;
+}
+.msg-heading {
+    text-align: left;
+    margin: 15px 0;
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+input,
+textarea,
+#send {
+    width: 100%;
+    border-radius: 5px;
+}
+input,
+textarea {
+    border: 1px solid;
+    background: lightgrey;
+    font-size: 14px;
+}
+input,
+#send {
+    padding: 10px;
+}
+input {
+    
+}
+textarea {
+    margin: 10px 0 0 0;
+}
+textarea::placeholder {
+    padding: 10px 0 0 10px;
+}
+#send {
+    display: block;
+    margin: 5px 0 20px 0;
+    border: none;
+    color: #fff;
+    background: rgba(0, 0, 155, .5);
+    text-transform: uppercase;
+}
+/*-------------- Settings --------------*/
+.settings-container {
+    text-align: center;
+    padding: 0 10px;
+    margin-bottom: 30px;
+}
+.settings-heading {
+    text-align: left;
+    margin: 15px 0;
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.flexo {
+    display: flex;
+    justify-content: space-between;
+}
+.flexo p {
+    display: inline;
+}
+#flexo2 {
+    margin-top: 30px;
+}
+.btn-on {
+    padding: 10px 40px;
+}
+.grid {
+    display: grid;
+    grid-template-areas:
+    'select select'
+    'save cancel';
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+select {
+    grid-area: select;
+    margin: 30px 0 10px 0;
+}
+#save-btn {
+    grid-area: save;
+    color: #fff;
+    background: rgba(0, 0, 155, .5);
+}
+#cancel-btn {
+    grid-area: cancel;
+    color: #fff;
+    background: #979797;
+}
+#cancel-btn,
+#save-btn {
+    border: 1px solid black;
+}
+#cancel-btn,
+#save-btn,
+select {
+    padding: 15px;
+    border-radius: 5px;
+}
