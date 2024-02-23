@@ -11,6 +11,14 @@ header, nav {
 main {
     font-family: 'Noto Sans', sans-serif;
 }
+/* .on-container::after {
+    content: 'OFF';
+    position: relative;
+    bottom: 12px;
+    right: 35%;
+    color: #fff;
+    transition: right .2s;
+} */
 
 
 /*-------------- Header --------------*/
@@ -300,30 +308,28 @@ h3, h4 {
     font-weight: 600;
     text-transform: uppercase;
 }
-input,
+#user-search,
 textarea,
 #send {
     width: 100%;
     border-radius: 5px;
 }
-input,
+#user-search,
 textarea {
     border: 1px solid;
     background: lightgrey;
     font-size: 14px;
 }
-input,
+#user-search,
 #send {
     padding: 15px;
 }
-input {
-    
-}
 textarea {
     margin: 10px 0 0 0;
+    padding: 15px;
 }
 textarea::placeholder {
-    padding: 10px 0 0 10px;
+    /* padding: 10px 0 0 10px; */
 }
 #send {
     /* display: block; */
@@ -358,9 +364,74 @@ textarea::placeholder {
 #flexo2 {
     margin-top: 30px;
 }
+/* .on-container::after {
+    content: 'OFF';
+    position: relative;
+    bottom: 12px;
+    right: 35%;
+    color: #fff;
+} */
 .btn-on {
-    padding: 10px 40px;
+    /* padding: 10px 40px; */
+    -webkit-appearance: none;
+    position: relative;
+    width: 90px;
+    height: 35px;
+    border-radius: 25px;
+    background-color: #ccc;
+    transition: background .3s;
+    outline: none;
+    cursor: pointer;
 }
+.btn-on::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    height: 1.25rem;
+    width: 1.25rem;
+    background-color: #fff;
+    transition: left .4s;
+    border-radius: 50%;
+    border: 2px solid #C5C5C5;
+}
+.btn-on:checked {
+    background-color: rgba(0, 0, 155, .5);
+}
+.btn-on:checked::after {
+    left: 80%;
+}
+.labels {
+    /* font-family: 'Poppins', sans-serif; */
+    cursor: pointer;
+}
+.labels::after {
+    content: attr(data-off);
+    position: relative;
+    bottom: 32px;
+    left: 10px;
+    color: #fff;
+    opacity: 1;
+    transition: all .4s ease;
+}
+.labels::before {
+    content: attr(data-on);
+    position: relative;
+    bottom: 32px;
+    right: 10px;
+    color: #fff;
+    opacity: 0;
+    transition: all .4s ease;
+}
+.btn-on:checked~div .labels::after {
+    opacity: 0;
+}
+.btn-on:checked~div .labels::before {
+    opacity: 1;
+}
+
 .grid {
     display: grid;
     grid-template-areas:
@@ -536,5 +607,9 @@ select {
     }
     textarea {
         height: 150px;
+    }
+    select {
+        position: relative;
+        top: 10px;
     }
 }

@@ -237,8 +237,8 @@
         <div class="inputs-container">
             <div class="msg-container">
                 <h5 class="msg-heading">Message User</h5>
-                <input type="text" name="" id="" placeholder="Search for User">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Message for User"></textarea>
+                <input type="text" name="" id="user-search" placeholder="Search for User">
+                <textarea name="" id="user-message" cols="30" rows="10" placeholder="Message for User"></textarea>
                 <button id="send">Send</button>
             </div>
         <!-- Settings -->
@@ -246,11 +246,23 @@
                 <h5 class="settings-heading">Settings</h5>
                 <div class="flexo">
                     <p>Send Email Notifications</p>
-                    <button class="btn-on">ON</button>
+                    <label class="on-container">
+                        <input class="btn-on" type="checkbox" name="" id="">
+                        <div>
+                            <span class="labels" data-on="ON" data-off="OFF"></span>
+                        </div>
+                    </label>
+                    <!-- <button class="btn-on">ON</button> -->
                 </div>
                 <div class="flexo" id="flexo2">
                     <p>Set Profile to Public</p>
-                    <button class="btn-on">ON</button>
+                    <label class="on-container">
+                        <input class="btn-on" type="checkbox" name="" id="">
+                        <div>
+                            <span class="labels" data-on="ON" data-off="OFF"></span>
+                        </div>
+                    </label>
+                    <!-- <button class="btn-on">ON</button> -->
                 </div>
                 <div class="grid">
                     <select name="timezones" id="timezones">

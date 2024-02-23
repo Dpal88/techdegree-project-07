@@ -10,3 +10,20 @@ alertBanner.addEventListener('click', e => {
         alertBanner.style.display = "none"
     }
 })
+
+// message user
+const send = document.getElementById('send');
+send.addEventListener('click', e => {
+    const user = document.getElementById('user-search');
+    const message = document.getElementById('user-message');
+    if (user.value === '' && message.value === '') {
+        alert('Please fill out user and message fields before sending');
+    } else if (user.value === '') {
+        alert('Please fill out user field before sending');
+    } else if (message.value === '') {
+        alert('Please fill out message field before sending');
+    }
+    else {
+        alert(`Your message has been sent to: ${user.value}`);
+    }
+})
