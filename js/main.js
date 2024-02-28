@@ -64,3 +64,170 @@ bell.addEventListener('click', e => {
 //         target.parentElement.style.display = "none";
 //     }
 // })
+
+
+
+// input autocomplete
+const names = ['Victoria Chambers', 'Dale Byrd', 'Dawn Wood', 'Dan Oliver'];
+const input = document.getElementById('user-search');
+
+input.addEventListener('input', onInputChange);
+
+function onInputChange() {
+    removeAutocompleteDropdown();
+
+    const inputValue = input.value.toLowerCase();
+
+    if (inputValue.length === 0) {
+        return;
+    }
+
+    const filteredNames = [];
+
+    names.forEach( (name) => {
+        if (name.substr(0, inputValue.length).toLowerCase() === inputValue ) {
+            filteredNames.push(name);
+        }
+    });
+
+    // console.log(filteredNames);
+    createAutocompleteDropdown(filteredNames);
+    
+}
+
+function createAutocompleteDropdown(list) {
+    const ul = document.createElement('ul');
+    ul.className = 'autocomplete-list';
+    ul.id = 'autocomplete-list';
+
+    list.forEach( (name) => {
+        const listItem = document.createElement('li');
+
+        const nameButton = document.createElement('button');
+        nameButton.innerHTML = name;
+        nameButton.addEventListener('click', onNameButtonClick);
+        listItem.appendChild(nameButton);
+
+        ul.appendChild(listItem);
+    })
+
+    input.after(ul);
+    // document.getElementById('autocomplete-wrapper').appendChild(ul);
+}
+
+function removeAutocompleteDropdown() {
+    const ul = document.getElementById('autocomplete-list');
+    if (ul) {
+        ul.remove();
+    }
+}
+
+function onNameButtonClick(e) {
+    // cancels default behavior for button
+    e.preventDefault();
+
+    const button = e.target;
+    // inputs value will be the buttons innerHTML that is clicked
+    input.value = button.innerHTML;
+
+    removeAutocompleteDropdown();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const names = ['Victoria Chambers', 'Dale Byrd', 'Dawn Wood', 'Dan Oliver'];
+
+// function autocomplete(input, list) {
+//     // const input = document.getElementById('user-search');
+//     input.addEventListener('input', e => {
+//         closeList();
+
+//         if (!this.value) {
+//             return;
+//         }
+
+//         suggestions = document.createElement('div');
+//         suggestions.setAttribute('id', 'suggestions');
+//         this.parentNode.appendChild(suggestions);
+
+//         for (let i=0; i<list.length; i++) {
+//             if (list[i].toUpperCase().includes(this.value.toUpperCase())) {
+//                 //If a match is foundm create a suggestion <div> and add it to the suggestions <div>
+//                 suggestion = document.createElement('div');
+//                 suggestion.innerHTML = list[i];
+
+//                 suggestion.addEventListener('click', function () {
+//                     input.value = this.innerHTML;
+//                     closeList();
+//                 });
+//                 suggestion.style.cursor = 'pointer';
+
+//                 suggestions.appendChild(suggestion);
+//             }
+//         }
+
+//     });
+
+//     function closeList() {
+//         let suggestions = document.getElementById('suggestions');
+//         if (suggestions)
+//             suggestions.parentNode.removeChild(suggestions);
+//     }
+// }
+
+// autocomplete(document.getElementById('user-search'), names);

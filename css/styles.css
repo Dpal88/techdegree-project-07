@@ -543,6 +543,33 @@ select {
     cursor: pointer;
 } */
 
+
+/*-------------- Autocomplete --------------*/
+.autocomplete-list {
+    list-style: none;
+    text-align: start;
+}
+.autocomplete-list li {
+    border: 1px solid #bbb;
+    border-top: none;
+}
+.autocomplete-list li:hover {
+    background: #eee;
+}
+.autocomplete-list button {
+    display: block;
+    width: 100%;
+    text-align: start;
+    padding: 15px;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+
 /*-------------- Animations --------------*/
 @keyframes shake {
     0%, 7% {
