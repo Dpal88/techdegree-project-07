@@ -44,12 +44,13 @@ function createNotification(){
 }
 
 const bell = document.getElementById('bell');
+
 bell.addEventListener('click', e => {
-    if (e.target === bell) {
-        createNotification();
-        createNotification();
-    }
+    createNotification();
+    createNotification();
+    
     const notifications = document.getElementsByClassName('notification');
+    // setTimeout() method calls a function and removes notification after 6s (6000ms)
     for (let notification of notifications) {
         setTimeout( () => {
             notification.remove();
@@ -84,8 +85,9 @@ function onInputChange() {
 
     const filteredNames = [];
 
+    // if a name matches the user's input, then add that name to the filteredNames array
     names.forEach( (name) => {
-        if (name.substr(0, inputValue.length).toLowerCase() === inputValue ) {
+        if (name.slice(0, inputValue.length).toLowerCase() === inputValue ) {
             filteredNames.push(name);
         }
     });
@@ -112,9 +114,9 @@ function createAutocompleteDropdown(list) {
     })
 
     input.after(ul);
-    // document.getElementById('autocomplete-wrapper').appendChild(ul);
 }
 
+// used to remove previous ul elements
 function removeAutocompleteDropdown() {
     const ul = document.getElementById('autocomplete-list');
     if (ul) {
@@ -122,11 +124,11 @@ function removeAutocompleteDropdown() {
     }
 }
 
+// If user clicks on a name, then that name will fill the input & remove the dropdown list
 function onNameButtonClick(e) {
-    // cancels default behavior for button
     e.preventDefault();
-
     const button = e.target;
+
     // inputs value will be the buttons innerHTML that is clicked
     input.value = button.innerHTML;
 
@@ -134,100 +136,43 @@ function onNameButtonClick(e) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const names = ['Victoria Chambers', 'Dale Byrd', 'Dawn Wood', 'Dan Oliver'];
-
-// function autocomplete(input, list) {
-//     // const input = document.getElementById('user-search');
-//     input.addEventListener('input', e => {
-//         closeList();
-
-//         if (!this.value) {
-//             return;
-//         }
-
-//         suggestions = document.createElement('div');
-//         suggestions.setAttribute('id', 'suggestions');
-//         this.parentNode.appendChild(suggestions);
-
-//         for (let i=0; i<list.length; i++) {
-//             if (list[i].toUpperCase().includes(this.value.toUpperCase())) {
-//                 //If a match is foundm create a suggestion <div> and add it to the suggestions <div>
-//                 suggestion = document.createElement('div');
-//                 suggestion.innerHTML = list[i];
-
-//                 suggestion.addEventListener('click', function () {
-//                     input.value = this.innerHTML;
-//                     closeList();
-//                 });
-//                 suggestion.style.cursor = 'pointer';
-
-//                 suggestions.appendChild(suggestion);
-//             }
-//         }
-
-//     });
-
-//     function closeList() {
-//         let suggestions = document.getElementById('suggestions');
-//         if (suggestions)
-//             suggestions.parentNode.removeChild(suggestions);
-//     }
-// }
-
-// autocomplete(document.getElementById('user-search'), names);
+// Save Settings with Local Storage
+const checkboxes = document.querySelectorAll('.toggle');
+const select = document.querySelector('select');
+const saveButton = document.querySelector('#save-btn');
+const cancelButton = document.querySelector('#cancel-btn')
+
+
+function save() {
+    for (i = 0; i < checkboxes.length; i++) {
+        localStorage.setItem("checkbox" + String(i), checkboxes[i].checked);
+    }
+    localStorage.setItem("option", select.value);
+}
+
+function clear() {
+    for (i = 0; i < checkboxes.length; i++) {
+        localStorage.removeItem("checkbox" + String(i));
+    }
+    localStorage.removeItem("option");
+    load();
+}
+
+function load() {
+    for (i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].checked = localStorage.getItem("checkbox" + String(i)) === 'true' ? true:false;
+    }
+    const timezone = localStorage.getItem('option');
+
+    if (timezone) {
+        select.value = timezone;
+    } else {
+        select.value = 1;
+    }
+}
+
+
+saveButton.addEventListener('click', save);
+cancelButton.addEventListener('click', clear);
+
+load();
